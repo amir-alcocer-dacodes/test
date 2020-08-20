@@ -14,8 +14,8 @@ const Home: React.FC<ProductProps & RouteComponentProps> = (
   return (
     <Container style={{ marginTop: "2rem", marginBottom: "2rem" }}>
       <Grid container>
-        {props.products.map((product: IProduct) => (
-          <Grid item md={3} sm={6} xs={12}>
+        {props.products.map((product: IProduct, index: number) => (
+          <Grid item md={3} sm={6} xs={12} key={index}>
             <ProductInfo
               onClick={() => props.history.push(`product/${product.id}`)}
               image={product.image}
@@ -26,8 +26,8 @@ const Home: React.FC<ProductProps & RouteComponentProps> = (
           </Grid>
         ))}
         {props.products.length === 0 &&
-          [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3].map((item) => (
-            <Grid item md={3} sm={6} xs={12} style={{ padding: 1 }}>
+          [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3].map((item, index) => (
+            <Grid key={index} item md={3} sm={6} xs={12} style={{ padding: 1 }}>
               <CardLoader />
             </Grid>
           ))}

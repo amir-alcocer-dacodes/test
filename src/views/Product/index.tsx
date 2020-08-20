@@ -4,7 +4,6 @@ import SingleProduct from "../../components/SingleProduct";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import { IProduct } from "../../components/HOC/Products";
 import { Skeleton } from "@material-ui/lab";
-import { CartContext, ICartContext } from "../../context/Cart";
 
 const LoaderSkeleton = () => (
   <Container maxWidth="md" style={{ marginTop: "2rem", marginBottom: "2rem" }}>
@@ -33,28 +32,26 @@ const ProductView: React.FC<RouteComponentProps<{ id: string }>> = (
   const [product, setProduct] = React.useState<IProduct | undefined>(undefined);
   const [loading, setLoading] = React.useState<Boolean>(true);
   const [error, setError] = React.useState<Boolean>(false);
-  const { setCartList } = React.useContext<ICartContext>(CartContext);
-
-  const getProduct = async () => {
-    try {
-      setError(false);
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/products/${props.match.params.id}`,
-        {
-          method: "GET",
-        }
-      );
-      const __products: IProduct = await response.json();
-      setProduct(__products);
-    } catch (error) {
-      setError(true);
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   React.useEffect(() => {
+    const getProduct = async () => {
+      try {
+        setError(false);
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}/products/${props.match.params.id}`,
+          {
+            method: "GET",
+          }
+        );
+        const __products: IProduct = await response.json();
+        setProduct(__products);
+      } catch (error) {
+        setError(true);
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
     getProduct();
   }, [props.match.params.id]);
 

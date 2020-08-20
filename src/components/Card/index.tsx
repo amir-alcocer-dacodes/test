@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography, Chip } from "@material-ui/core";
+import { Typography, Chip } from "@material-ui/core";
 import "./style.css";
 import { Skeleton } from "@material-ui/lab";
 

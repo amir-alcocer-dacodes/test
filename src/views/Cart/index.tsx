@@ -32,8 +32,9 @@ const Cart: React.FC<RouteComponentProps> = (props: RouteComponentProps) => {
                 overflowY: "auto",
               }}
             >
-              {cartList.map((product: IProduct) => (
+              {cartList.map((product: IProduct, index: number) => (
                 <Grid
+                  key={index}
                   item
                   md={3}
                   sm={6}
