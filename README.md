@@ -1,3 +1,11 @@
+## Initial Setup
+
+This is a simple create-react-app, to run this project run `yarn install` or `npm install`.
+Create a new .env file and add `REACT_APP_API_URL="https://fakestoreapi.com"` to allow the app access to the mock server API.
+This project uses Typescript.
+
+## CRA template
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
