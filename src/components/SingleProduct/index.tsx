@@ -17,7 +17,11 @@ const SingleProduct: React.FC<SingleProps> = (props: SingleProps) => {
     >
       <Grid container justify="center">
         <Grid item sm={6} xs={12} container justify="center">
-          <img className="single-image" src={props.product.image as string} />
+          <img
+            alt="Product"
+            className="single-image"
+            src={props.product.image as string}
+          />
         </Grid>
         <Grid item sm={6} xs={12}>
           <Grid container>
